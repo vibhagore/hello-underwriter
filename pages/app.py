@@ -17,7 +17,7 @@ with st.sidebar:
     st.write('Made with ❤️ by [Prompt Engineer](https://youtube.com/@engineerprompt)')
  
  
-def underwriter(): -> None:
+def underwriter() -> None:
     st.header("Chat with Underwriter - PDF ")
     st.set_page_config(page_title="Virtual Underwriter Demo", page_icon="💬")
     st.markdown("# Virtual Underwriter Demo")
@@ -28,4 +28,4 @@ def underwriter(): -> None:
  
 underwriter()
 
-show_code(underwriter_demo)
+show_code(underwriter)
