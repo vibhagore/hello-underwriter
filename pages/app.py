@@ -18,10 +18,11 @@ with st.sidebar:
  
  
 def underwriter() -> None:
-    st.header("Chat with Underwriter - PDF ")
+    st.header("Chat with Virtual Underwriter")
     # upload a PDF file
     pdf = st.file_uploader("Upload your PDF", type='pdf')
-   
+    pdf_reader = PdfReader(pdf)
+    st.write(pdf_reader)
  
 underwriter()
 
