@@ -18,7 +18,6 @@ with st.sidebar:
  
  
 def underwriter():
-    st.write("Hello")
     st.header("Chat with Underwriter - PDF 💬")
  
  
