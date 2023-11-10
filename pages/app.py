@@ -52,6 +52,7 @@ def underwriter() -> None:
         else:
             embeddings = OpenAIEmbeddings()
             VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
+            store_name = pdf.name[:4]
                 with open(f"{store_name}.pkl", "wb") as f:
                     pickle.dump(VectorStore, f)
 
