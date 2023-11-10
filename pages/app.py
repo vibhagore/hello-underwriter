@@ -1,5 +1,4 @@
 import streamlit as st
-#from dotenv import load_dotenv
 import pickle
 from PyPDF2 import PdfReader
 from streamlit_extras.add_vertical_space import add_vertical_space
@@ -25,7 +24,6 @@ with st.sidebar:
     add_vertical_space(5)
     st.write('Made with ❤️ by [Prompt Engineer](https://youtube.com/@engineerprompt)')
  
-load_dotenv()
  
 def underwriter():
     st.header("Chat with PDF 💬")
@@ -81,6 +79,6 @@ def underwriter():
                 print(cb)
             st.write(response)
  
-if __name__ == '__main__':
+if __name__ == '__underwriter__':
     underwriter()
   
