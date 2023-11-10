@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit.hello.utils import show_code
 
 
 # Sidebar contents
