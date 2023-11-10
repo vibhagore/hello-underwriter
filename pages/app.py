@@ -2,6 +2,12 @@ import streamlit as st
 from streamlit.hello.utils import show_code
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
+from langchain.llms import OpenAI
+from langchain.chains.question_answering import load_qa_chain
+from langchain.callbacks import get_openai_callback
+
 
 # Sidebar contents
 with st.sidebar:
@@ -36,6 +42,12 @@ def underwriter() -> None:
             length_function=len
             )
         chunks = text_splitter.split_text(text=text)
+
+        #embeddings
+        embeddings = OpenAIEmbeddings()
+        VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
+            with open(f"{store_name}.pkl", "wb") as f:
+                pickle.dump(VectorStore, f)
 
         st.write(chunks)
       
