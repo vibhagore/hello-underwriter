@@ -1,15 +1,6 @@
 import streamlit as st
-import pickle
-from PyPDF2 import PdfReader
 from streamlit_extras.add_vertical_space import add_vertical_space
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.llms import OpenAI
-from langchain.chains.question_answering import load_qa_chain
-from langchain.callbacks import get_openai_callback
-import os
- 
+
 # Sidebar contents
 with st.sidebar:
     st.title('🤗💬 LLM Chat App')
@@ -79,6 +70,6 @@ def underwriter():
                 print(cb)
             st.write(response)
  
-if __name__ == '__underwriter__':
-    underwriter()
+#if __name__ == '__underwriter__':
+ #   underwriter()
   
