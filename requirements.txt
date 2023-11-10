@@ -2,7 +2,7 @@ altair
 numpy
 pandas
 pydeck
-langchain
-PyPDF2
+langchain==0.0.154
+PyPDF2==3.0.1
 #python-dotenv
 #faiss-cpu==1.7.4
