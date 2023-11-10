@@ -22,7 +22,7 @@ def underwriter() -> None:
     st.header("Chat with Virtual Underwriter")
     # upload a PDF file
     pdf = st.file_uploader("Upload your PDF", type='pdf')
-     if pdf is not None:
+    if pdf is not None:
         pdf_reader = PdfReader(pdf)
         
         text = ""
