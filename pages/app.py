@@ -24,7 +24,7 @@ def underwriter() -> None:
     pdf = st.file_uploader("Upload your PDF", type='pdf')
     if pdf is not None:
         pdf_reader = PdfReader(pdf)
-        st.writer(pdf_reader)
+        st.write(pdf_reader)
         
         text = ""
         for page in pdf_reader.pages:
