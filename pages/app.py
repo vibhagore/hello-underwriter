@@ -51,6 +51,7 @@ def underwriter() -> None:
             # st.write('Embeddings Loaded from the Disk')s
         else:
             embeddings = OpenAIEmbeddings()
+            # call like this: openai = OpenAIEmbeddings(openai_api_key="my-api-key")
             VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
             store_name = pdf.name[:4]
             with open(f"{store_name}.pkl", "wb") as f:
