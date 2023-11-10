@@ -19,12 +19,7 @@ with st.sidebar:
  
 def underwriter() -> None:
     st.header("Chat with Underwriter - PDF ")
-    st.set_page_config(page_title="Virtual Underwriter Demo", page_icon="💬")
-    st.markdown("# Virtual Underwriter Demo")
-    st.sidebar.header("Virtual Underwriter Demo")
-    st.write(
-        """This app shows how you can ask questions to the virtual underwriter by uploading your property documents """
-        )
+   
  
 underwriter()
 
