@@ -26,9 +26,6 @@ def underwriter(): -> None:
         """This app shows how you can ask questions to the virtual underwriter by uploading your property documents """
         )
  
- 
-    
- 
-#if __name__ == '__underwriter__':
-    underwriter()
-  
+underwriter()
+
+show_code(underwriter_demo)
