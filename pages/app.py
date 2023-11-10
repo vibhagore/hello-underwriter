@@ -19,6 +19,8 @@ with st.sidebar:
  
 def underwriter() -> None:
     st.header("Chat with Underwriter - PDF ")
+    # upload a PDF file
+    pdf = st.file_uploader("Upload your PDF", type='pdf')
    
  
 underwriter()
