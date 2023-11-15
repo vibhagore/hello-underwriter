@@ -37,7 +37,7 @@ def underwriter(openai_api_key) -> None:
             # st.write('Embeddings Loaded from the Disk')s
         else:
             embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
-             VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
+            VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
             
             with open(f"{store_name}.pkl", "wb") as f:
                 pickle.dump(VectorStore, f)
