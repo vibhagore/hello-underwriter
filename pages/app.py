@@ -10,8 +10,7 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
 import os
 
-def underwriter(openai_api_key) -> None:
-      
+def underwriter(openai_api_key) -> None:    
     st.header("Chat with Virtual Underwriter")
     # upload a PDF file
     pdf = st.file_uploader("Upload your PDF", type='pdf')
@@ -63,6 +62,6 @@ with st.sidebar:
     st.header("Get the API Key")
     openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
    
-    underwriter(openai_api_key)
+underwriter(openai_api_key)
 
 #show_code(underwriter)
