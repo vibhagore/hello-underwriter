@@ -10,18 +10,6 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
 import os
 
-def generate_response(input_text):
-    llm = OpenAI(temperature=0.7, openai_api_key=input_text)
-    st.info(llm(input_text))
-
-with st.form('my_form'):
-       openai_api_key = st.text_area('Enter text:', 'zenter the open API key here')
-       submitted = st.form_submit_button('Submit')
-       if not openai_api_key.startswith('sk-'):
-           st.warning('Please enter your OpenAI API key!', icon='⚠')
-       if submitted and openai_api_key.startswith('sk-'):
-           generate_response(openai_api_key)
-
 def underwriter(openai_api_key) -> None:
       
     st.header("Chat with Virtual Underwriter")
@@ -74,7 +62,6 @@ with st.sidebar:
 
     st.header("Get the API Key")
     openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
-
    
     underwriter(openai_api_key)
 
