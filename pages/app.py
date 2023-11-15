@@ -35,13 +35,13 @@ with st.sidebar:
            st.warning('Please enter your OpenAI API key!', icon='⚠')
        if submitted and openai_api_key.startswith('sk-'):
            generate_response(text)
-           underwriter()
+           underwriter(text)
  
 def generate_response(input_text):
     llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
     st.info(llm(input_text))
 
-def underwriter() -> None:
+def underwriter(textAPIKey) -> None:
       
     st.header("Chat with Virtual Underwriter")
     # upload a PDF file
@@ -67,7 +67,7 @@ def underwriter() -> None:
                 VectorStore = pickle.load(f)
             # st.write('Embeddings Loaded from the Disk')s
         else:
-            embeddings = OpenAIEmbeddings(openai_api_key=text)
+            embeddings = OpenAIEmbeddings(openai_api_key=textAPIKey)
             # call like this: openai = OpenAIEmbeddings(openai_api_key="my-api-key")
             VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
             store_name = pdf.name[:4]
