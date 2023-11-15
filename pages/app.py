@@ -9,6 +9,7 @@ from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
 import os
+import tiktoken
 
 def underwriter(openai_api_key) -> None:    
     st.header("Chat with Virtual Underwriter")
