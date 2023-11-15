@@ -12,6 +12,7 @@ import os
 
 # Sidebar contents
 with st.sidebar:
+   
     st.title('🤗💬 LLM Chat with the Virtual Underwriter App')
     st.markdown('''
     ## About
@@ -26,6 +27,21 @@ with st.sidebar:
  
  
 def underwriter() -> None:
+    st.header("Get the API Key")
+    openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
+
+def generate_response(input_text):
+    llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
+    st.info(llm(input_text))
+
+with st.form('my_form'):
+    text = st.text_area('Enter text:', 'What are the three key pieces of advice for learning how to code?')
+    submitted = st.form_submit_button('Submit')
+    if not openai_api_key.startswith('sk-'):
+        st.warning('Please enter your OpenAI API key!', icon='⚠')
+    if submitted and openai_api_key.startswith('sk-'):
+        generate_response(text)
+    
     st.header("Chat with Virtual Underwriter")
     # upload a PDF file
     pdf = st.file_uploader("Upload your PDF", type='pdf')
@@ -50,7 +66,7 @@ def underwriter() -> None:
                 VectorStore = pickle.load(f)
             # st.write('Embeddings Loaded from the Disk')s
         else:
-            embeddings = OpenAIEmbeddings(openai_api_key="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")
+            embeddings = OpenAIEmbeddings(openai_api_key=text)
             # call like this: openai = OpenAIEmbeddings(openai_api_key="my-api-key")
             VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
             store_name = pdf.name[:4]
