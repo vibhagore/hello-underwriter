@@ -50,7 +50,7 @@ def underwriter() -> None:
                 VectorStore = pickle.load(f)
             # st.write('Embeddings Loaded from the Disk')s
         else:
-            embeddings = OpenAIEmbeddings()
+            embeddings = OpenAIEmbeddings(openai_api_key="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")
             # call like this: openai = OpenAIEmbeddings(openai_api_key="my-api-key")
             VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
             store_name = pdf.name[:4]
