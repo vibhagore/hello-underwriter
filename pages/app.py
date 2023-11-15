@@ -22,7 +22,7 @@ with st.form('my_form'):
        if submitted and openai_api_key.startswith('sk-'):
            generate_response(openai_api_key)
 
-def underwriter(textAPIKey) -> None:
+def underwriter(openai_api_key) -> None:
       
     st.header("Chat with Virtual Underwriter")
     # upload a PDF file
@@ -76,6 +76,6 @@ with st.sidebar:
     openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 
    
-           #underwriter(text)
+    underwriter(openai_api_key)
 
 #show_code(underwriter)
