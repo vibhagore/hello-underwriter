@@ -35,10 +35,10 @@ with st.sidebar:
            st.warning('Please enter your OpenAI API key!', icon='⚠')
        if submitted and openai_api_key.startswith('sk-'):
            generate_response(text)
-           underwriter(text)
+           #underwriter(text)
  
 def generate_response(input_text):
-    llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
+    llm = OpenAI(temperature=0.7, openai_api_key=input_text)
     st.info(llm(input_text))
 
 def underwriter(textAPIKey) -> None:
