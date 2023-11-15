@@ -28,7 +28,8 @@ def underwriter(openai_api_key) -> None:
             length_function=len
             )
         chunks = text_splitter.split_text(text=text)
-
+        store_name = pdf.name[:4]
+        
         #embeddings
         if os.path.exists(f"{store_name}.pkl"):
             with open(f"{store_name}.pkl", "rb") as f:
@@ -38,7 +39,7 @@ def underwriter(openai_api_key) -> None:
             embeddings = OpenAIEmbeddings(openai_api_key=textAPIKey)
             # call like this: openai = OpenAIEmbeddings(openai_api_key="my-api-key")
             VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
-            store_name = pdf.name[:4]
+            
             with open(f"{store_name}.pkl", "wb") as f:
                 pickle.dump(VectorStore, f)
 
